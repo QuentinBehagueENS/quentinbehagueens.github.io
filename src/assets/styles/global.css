@@ -70,7 +70,16 @@ nav {
     width: 100%;
     background-color: rgb(109, 145, 151);
     margin: 0px auto 0px auto;
-    top: 0px;}
+    top: 0px;
+}
+
+nav a {
+        display: block;
+        text-decoration: none;
+        color: rgb(40, 54, 61);
+        border-bottom: 2px solid transparent; 
+        padding: 10px 0px;
+}
 
 nav a:hover{
     color: rgb(213, 188, 160);
@@ -93,12 +102,6 @@ nav li {
     overflow-x: scroll;
 }
 
-nav a{
-    display: block;
-    text-decoration: none;
-    color: rgb(40, 54, 61);
-    border-bottom: 2px solid transparent; 
-    padding: 10px 0px;}
 
 .sous{
     display: none;

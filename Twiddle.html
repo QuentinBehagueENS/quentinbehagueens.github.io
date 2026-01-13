@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grille 3x3 avec Rotation</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+            font-family: Arial, sans-serif;
+        }
+
+        .grid-container {
+            display: grid;
+            background-color: #943737;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+            gap: 0px;
+            position: relative;
+        }
+
+        .cell {
+            margin: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff;
+            font-size: 24px;
+            font-weight: bold;
+            user-select: none;
+            transition: transform 0.1s;
+            border: 2px solid #000;
+        }
+
+        .button {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-1 { top: 85px; left: 85px; }
+        .btn-2 { top: 85px; left: 185px; }
+        .btn-3 { top: 185px; left: 85px; }
+        .btn-4 { top: 185px; left: 185px; }
+
+        .controls {
+            margin-bottom: 20px;
+        }
+
+        .controls button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .controls button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <button onclick="resetGrid()">Réinitialiser</button>
+        <button onclick="shuffleGrid()">Mélanger</button>
+    </div>
+
+    <div class="grid-container" id="grid-container">
+        <!-- Grille 3x3 -->
+        <div class="cell" id="cell-1">1</div>
+        <div class="cell" id="cell-2">2</div>
+        <div class="cell" id="cell-3">3</div>
+        <div class="cell" id="cell-4">4</div>
+        <div class="cell" id="cell-5">5</div>
+        <div class="cell" id="cell-6">6</div>
+        <div class="cell" id="cell-7">7</div>
+        <div class="cell" id="cell-8">8</div>
+        <div class="cell" id="cell-9">9</div>
+
+        <!-- Boutons pour rotation -->
+        <button class="button btn-1" onclick="rotate(1)">↻</button>
+        <button class="button btn-2" onclick="rotate(2)">↻</button>
+        <button class="button btn-3" onclick="rotate(3)">↻</button>
+        <button class="button btn-4" onclick="rotate(4)">↻</button>
+    </div>
+
+    <script>
+        function rotate(buttonId) {
+            const cells = {
+                1: [1, 2, 4, 5],
+                2: [2, 3, 5, 6],
+                3: [4, 5, 7, 8],
+                4: [5, 6, 8, 9]
+            };
+
+            const indices = cells[buttonId];
+            const elements = indices.map(index => document.getElementById(`cell-${index}`));
+
+            // Appliquer une rotation visuelle
+            elements.forEach(cell => cell.style.transform = "scale(1.1)");
+
+            setTimeout(() => {
+                const grid = elements.map(el => el.textContent);
+
+                // Effectuer une rotation horaire sur les 4 cases
+                elements[0].textContent = grid[2];
+                elements[1].textContent = grid[0];
+                elements[2].textContent = grid[3];
+                elements[3].textContent = grid[1];
+
+                // Réinitialiser la transformation
+                elements.forEach(cell => cell.style.transform = "scale(1)");
+            }, 500);
+        }
+
+        function resetGrid() {
+            const initialValues = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+            initialValues.forEach((value, index) => {
+                document.getElementById(`cell-${index + 1}`).textContent = value;
+            });
+        }
+
+        function shuffleGrid() {
+            const values = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+            for (let i = values.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [values[i], values[j]] = [values[j], values[i]];
+            }
+
+            values.forEach((value, index) => {
+                document.getElementById(`cell-${index + 1}`).textContent = value;
+            });
+        }
+    </script>
+</body>
+</html>
