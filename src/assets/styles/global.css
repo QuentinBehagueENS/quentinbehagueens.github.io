@@ -279,8 +279,8 @@ button:hover {
     margin : 10px;
     text-align: center;
     box-shadow: 1px 4px 8px #4e4e4e;
-    min-width: 400px;
-    max-width: 600px;
+    min-width: 40vw;
+    max-width: 80vw;
     margin: 1%;
     margin-top: 2%;
     border-radius: 20px;
