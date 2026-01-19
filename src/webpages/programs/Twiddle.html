@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Puzzle</title>
+    <title>Twiddle</title>
     <link href="../../assets/styles/global.css" rel="stylesheet">
     <link href="../../../public/favicon.png" rel="icon" type="image/x-icon">
     <style>
@@ -58,39 +58,7 @@
 
 <body background="../../assets/images/background.png" bgproperties="fixed"-->
 
-
-<div id="slider-container" style="width : 700px; text-align: center; margin: auto;">
-        
-    <div id="selected-value-width" style="font-size : 1vw;">Largeur : <span id="sliderValueWidth">6</span></div>
-    <label for="numberSliderWidth"></label>
-    <input type="range" id="numberSliderWidth" min="1" max="20" value="6" step="1" style="width: 400px;" >
-    
-    <div id="selected-value-height" style="font-size : 1vw;">Hauteur : <span id="sliderValueHeight">6</span></div>
-    <label for="numberSliderHeight"> </label>
-    <input type="range" id="numberSliderHeight" min="1" max="20" value="6" step="1" style="width: 400px;">
-    
-    <div id="selected-color-list-size" style="font-size : 1vw;">Nombre de couleurs utilisés: <span id="colorListSizeValue">2</span></div>
-    <label for="colorListSize"></label>
-    <input type="range" id="colorListSize" min="2" max="20" value="2" step="1" style="width: 400px;">
-    <br>
-    <div id = "shuffle-buttons">
-        <button class="bouton"  id="shuffleButton" >Mélanger</button>
-        <button class="bouton" id="shuffleRotateButton" class="shuffle-button">Mélanger (uniquement les rotations)</button>
-        <button class="bouton" id="shufflePlacementButton" class="shuffle-button">Mélanger (uniquement les positions)</button>
-    </div>
-</div>
-
-
-<div class="box01" id="cont">
-    <div id="canvas-container" style="margin: 0 auto; width: 100%; height: 100%;">
-        <canvas id="myCanvas"></canvas>
-    </div>
-</div>
-
-<br>
-
-<script type="text/javascript" src="../../assets/scripts/puzzle.js"></script>
-<script>window.addEventListener('resize', resizeCanvas);</script>
+<div class="box01" style="width: 80%; margin: 2vw auto;"> Cette page contiendra dans le futur une implémentation du Twiddle de Simon Tatham. Pour le moment, vous pouvez y accéder via <a href="https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/twiddle.html">ce lien.</a></div>
 
 </body>
 </html>
